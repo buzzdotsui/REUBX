@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Collections — Reubx World®️ | Sneakers, Jewelry, Unisex & Underwear</title>
+    <meta name="description" content="Shop all Reubx World collections. Browse premium sneakers, jewelry, unisex wears and underwear with Naira pricing and WhatsApp ordering." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/style.css" />
+    <link rel="stylesheet" href="/src/collections.css" />
+  </head>
+  <body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="/" class="nav-logo">REUBX <span>WORLD</span></a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="/">Home</a></li>
+          <li><a href="/collections.html" class="active">Collections</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#featured">Featured</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+        <a href="https://wa.me/2348104699214" class="nav-cta" target="_blank" rel="noopener">Order via WhatsApp</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- COLLECTIONS HERO BANNER -->
+    <section class="coll-hero">
+      <div class="coll-hero-overlay"></div>
+      <div class="coll-hero-content">
+        <p class="section-tag">THE FULL COLLECTION</p>
+        <h1 class="coll-hero-title">Shop <em>All Collections</em></h1>
+        <p class="coll-hero-sub">Premium sneakers, jewelry, unisex wears & underwear — curated for those who demand excellence.</p>
+      </div>
+    </section>
+
+    <!-- SEARCH + FILTER BAR -->
+    <section class="search-filter-bar" id="searchFilterBar">
+      <div class="container">
+        <div class="search-filter-inner">
+
+          <!-- Search Input -->
+          <div class="search-wrap" id="searchWrap">
+            <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+            <input
+              type="text"
+              id="searchInput"
+              class="search-input"
+              placeholder="Search products…"
+              autocomplete="off"
+              aria-label="Search products"
+            />
+            <button class="search-clear" id="searchClear" aria-label="Clear search" style="display:none">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M18 6 6 18M6 6l12 12"/>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Category Filter Tabs -->
+          <div class="filter-tabs" id="filterTabs" role="tablist">
+            <button class="filter-tab active" data-cat="all" role="tab" aria-selected="true" id="tab-all">All</button>
+            <button class="filter-tab" data-cat="sneakers" role="tab" aria-selected="false" id="tab-sneakers">👟 Sneakers</button>
+            <button class="filter-tab" data-cat="jewelry" role="tab" aria-selected="false" id="tab-jewelry">💎 Jewelry</button>
+            <button class="filter-tab" data-cat="unisex" role="tab" aria-selected="false" id="tab-unisex">👕 Unisex Wears</button>
+            <button class="filter-tab" data-cat="underwear" role="tab" aria-selected="false" id="tab-underwear">🩲 Underwear</button>
+          </div>
+
+          <!-- Sort + Price Filter -->
+          <div class="filter-controls">
+            <select class="filter-select" id="sortSelect" aria-label="Sort products">
+              <option value="default">Sort: Featured</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="name-asc">Name: A–Z</option>
+            </select>
+            <select class="filter-select" id="priceSelect" aria-label="Filter by price">
+              <option value="all">All Prices</option>
+              <option value="0-10000">Under ₦10,000</option>
+              <option value="10000-25000">₦10,000 – ₦25,000</option>
+              <option value="25000-50000">₦25,000 – ₦50,000</option>
+              <option value="50000-999999">Above ₦50,000</option>
+            </select>
+          </div>
+
+        </div>
+
+        <!-- Results count -->
+        <p class="results-count" id="resultsCount">Showing <span id="countNum">0</span> products</p>
+      </div>
+    </section>
+
+    <!-- PRODUCTS GRID -->
+    <main class="shop-main" id="shopMain">
+      <div class="container">
+        <div class="shop-grid" id="shopGrid">
+          <!-- Products injected by JS -->
+        </div>
+        <div class="no-results" id="noResults" style="display:none">
+          <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+          <h3>No products found</h3>
+          <p>Try adjusting your search or filters.</p>
+          <button class="btn btn-outline" id="resetBtn">Reset Filters</button>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer" id="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="/" class="footer-logo">REUBX <span>WORLD</span></a>
+            <p class="footer-tagline">A registered fashion brand delivering quality fashion items with excellence and style.</p>
+          </div>
+          <div class="footer-nav">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/collections.html">Collections</a></li>
+              <li><a href="/#about">About Us</a></li>
+              <li><a href="/#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav">
+            <h4>Collections</h4>
+            <ul>
+              <li><a href="#" data-filter="sneakers">Sneakers & Shoes</a></li>
+              <li><a href="#" data-filter="jewelry">Jewelry</a></li>
+              <li><a href="#" data-filter="unisex">Unisex Wears</a></li>
+              <li><a href="#" data-filter="underwear">Underwear</a></li>
+            </ul>
+          </div>
+          <div class="footer-contact">
+            <h4>Contact Us</h4>
+            <ul>
+              <li><a href="tel:+2348104699214">📞 08104699214</a></li>
+              <li><a href="https://wa.me/2348104699214" target="_blank" rel="noopener">💬 WhatsApp</a></li>
+            </ul>
+            <div class="footer-socials">
+              <a href="#" aria-label="Instagram" class="social-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              </a>
+              <a href="#" aria-label="Twitter" class="social-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Reubx World®️. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/collections.js"></script>
+  </body>
+</html>
