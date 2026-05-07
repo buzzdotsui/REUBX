@@ -5,6 +5,7 @@ import './style.css';
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
+  initLoader();
   initHeroReveal();
   initScrollAnimations();
   initNavbar();
@@ -13,16 +14,29 @@ document.addEventListener('DOMContentLoaded', () => {
   initParallax();
   initGoldenParticles();
   initTiltCards();
+  initTestimonialCarousel();
+  initBackToTop();
+  initNewsletter();
 });
+
+// --- Loading Screen ---
+function initLoader() {
+  const loader = document.getElementById('loader');
+  if (!loader) return;
+  setTimeout(() => {
+    loader.classList.add('hidden');
+    setTimeout(() => loader.remove(), 600);
+  }, 2000);
+}
 
 // --- Cinematic Hero Reveal ---
 function initHeroReveal() {
   const elements = [
-    { sel: '.hero-tag', delay: 200 },
-    { sel: '.hero-title', delay: 500 },
-    { sel: '.hero-subtitle', delay: 800 },
-    { sel: '.hero-ctas', delay: 1100 },
-    { sel: '.hero-scroll-indicator', delay: 1600 }
+    { sel: '.hero-tag', delay: 2200 },
+    { sel: '.hero-title', delay: 2500 },
+    { sel: '.hero-subtitle', delay: 2800 },
+    { sel: '.hero-ctas', delay: 3100 },
+    { sel: '.hero-scroll-indicator', delay: 3600 }
   ];
 
   elements.forEach(({ sel, delay }) => {
@@ -46,7 +60,6 @@ function initScrollAnimations() {
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // Check if it's a stagger parent
           const children = entry.target.querySelectorAll('.animate-on-scroll');
           if (children.length > 0) {
             children.forEach((child, i) => {
@@ -61,8 +74,6 @@ function initScrollAnimations() {
   );
 
   document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
-
-  // Also observe grid containers for staggered reveal
   document.querySelectorAll('.categories-grid, .products-grid, .trust-badges, .process-steps')
     .forEach((el) => observer.observe(el));
 }
@@ -105,7 +116,7 @@ function initSmoothScroll() {
       const target = document.querySelector(targetId);
       if (!target) return;
       e.preventDefault();
-      const navHeight = document.querySelector('.navbar').offsetHeight;
+      const navHeight = document.querySelector('.navbar').offsetHeight + 36;
       window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - navHeight, behavior: 'smooth' });
     });
   });
@@ -160,5 +171,62 @@ function initTiltCards() {
     card.addEventListener('mouseleave', () => {
       card.style.transform = 'perspective(800px) rotateY(0) rotateX(0) translateY(0)';
     });
+  });
+}
+
+// --- Testimonial Carousel ---
+function initTestimonialCarousel() {
+  const slides = document.querySelectorAll('.testimonial-slide');
+  const dotsContainer = document.getElementById('testimonialDots');
+  if (!slides.length || !dotsContainer) return;
+
+  let current = 0;
+
+  // Create dots
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'testimonial-dot' + (i === 0 ? ' active' : '');
+    dot.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(dot);
+  });
+
+  function goTo(index) {
+    slides[current].classList.remove('active');
+    dotsContainer.children[current].classList.remove('active');
+    current = index;
+    slides[current].classList.add('active');
+    dotsContainer.children[current].classList.add('active');
+  }
+
+  setInterval(() => {
+    goTo((current + 1) % slides.length);
+  }, 5000);
+}
+
+// --- Back to Top ---
+function initBackToTop() {
+  const btn = document.getElementById('backToTop');
+  if (!btn) return;
+
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 600);
+  }, { passive: true });
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+// --- Newsletter ---
+function initNewsletter() {
+  const form = document.getElementById('newsletterForm');
+  if (!form) return;
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const content = form.closest('.newsletter-content');
+    if (content) {
+      form.innerHTML = '<p class="newsletter-success">✦ Welcome to the inner circle! You\'ll hear from us soon.</p>';
+    }
   });
 }

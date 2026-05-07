@@ -17,6 +17,36 @@
   </head>
   <body>
 
+    <!-- LOADING SCREEN -->
+    <div class="loader" id="loader">
+      <div class="loader-inner">
+        <div class="loader-logo">REUBX <span>WORLD</span></div>
+        <div class="loader-bar"><div class="loader-progress"></div></div>
+      </div>
+    </div>
+
+    <!-- ANNOUNCEMENT MARQUEE -->
+    <div class="announcement-bar" id="announcementBar">
+      <div class="announcement-track">
+        <span>FREE DELIVERY ON ORDERS OVER ₦50,000</span>
+        <span class="ann-dot">✦</span>
+        <span>NEW ARRIVALS EVERY WEEK</span>
+        <span class="ann-dot">✦</span>
+        <span>PREMIUM QUALITY GUARANTEED</span>
+        <span class="ann-dot">✦</span>
+        <span>TRUSTED BY 5,000+ CUSTOMERS</span>
+        <span class="ann-dot">✦</span>
+        <span>FREE DELIVERY ON ORDERS OVER ₦50,000</span>
+        <span class="ann-dot">✦</span>
+        <span>NEW ARRIVALS EVERY WEEK</span>
+        <span class="ann-dot">✦</span>
+        <span>PREMIUM QUALITY GUARANTEED</span>
+        <span class="ann-dot">✦</span>
+        <span>TRUSTED BY 5,000+ CUSTOMERS</span>
+        <span class="ann-dot">✦</span>
+      </div>
+    </div>
+
     <!-- NAVIGATION -->
     <nav class="navbar" id="navbar">
       <div class="nav-container">
@@ -38,7 +68,7 @@
     <!-- 1. HERO SECTION -->
     <section class="hero" id="home">
       <div class="hero-bg">
-        <img src="/images/hero-bg.png" alt="Reubx World luxury fashion" />
+        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1920&h=1080&fit=crop&q=85" alt="Reubx World luxury fashion" />
         <div class="hero-overlay"></div>
       </div>
       <div class="hero-particles" aria-hidden="true"></div>
@@ -81,10 +111,36 @@
             <span>Fast &amp; Reliable Delivery</span>
           </div>
         </div>
-        <blockquote class="testimonial animate-on-scroll">
-          <p>&ldquo;Exceptional service and attention to customers. Reubx World delivers quality you can trust — every order exceeded my expectations.&rdquo;</p>
-          <cite>— Satisfied Customer</cite>
-        </blockquote>
+        <div class="testimonial-carousel animate-on-scroll" id="testimonialCarousel">
+          <div class="testimonial-slides">
+            <blockquote class="testimonial-slide active">
+              <div class="testimonial-stars">★★★★★</div>
+              <p>&ldquo;Exceptional service and attention to customers. Reubx World delivers quality you can trust — every order exceeded my expectations.&rdquo;</p>
+              <cite>— Adaeze O., Lagos</cite>
+            </blockquote>
+            <blockquote class="testimonial-slide">
+              <div class="testimonial-stars">★★★★★</div>
+              <p>&ldquo;The sneakers I got are absolutely fire! Premium quality, fast delivery, and the customer service is top-notch. Will definitely order again.&rdquo;</p>
+              <cite>— Chidi M., Abuja</cite>
+            </blockquote>
+            <blockquote class="testimonial-slide">
+              <div class="testimonial-stars">★★★★★</div>
+              <p>&ldquo;I've been shopping with Reubx World for 6 months now. Their jewelry collection is stunning and the prices are unbeatable.&rdquo;</p>
+              <cite>— Blessing A., Port Harcourt</cite>
+            </blockquote>
+            <blockquote class="testimonial-slide">
+              <div class="testimonial-stars">★★★★★</div>
+              <p>&ldquo;Ordered a tracksuit set and it arrived in perfect condition. The fit is amazing and the material feels so premium. Reubx is the real deal!&rdquo;</p>
+              <cite>— Tunde K., Ibadan</cite>
+            </blockquote>
+            <blockquote class="testimonial-slide">
+              <div class="testimonial-stars">★★★★★</div>
+              <p>&ldquo;Best fashion brand I've discovered this year. Their attention to detail and packaging makes you feel like a VIP. Highly recommend!&rdquo;</p>
+              <cite>— Ngozi E., Enugu</cite>
+            </blockquote>
+          </div>
+          <div class="testimonial-dots" id="testimonialDots"></div>
+        </div>
       </div>
     </section>
 
@@ -98,7 +154,7 @@
         </div>
         <div class="categories-grid">
           <a href="/collections.html?cat=sneakers" class="category-card animate-on-scroll" id="cat-sneakers">
-            <div class="category-img"><img src="/images/sneakers.png" alt="Premium Sneakers & Shoes" loading="lazy" /></div>
+            <div class="category-img"><img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?w=600&h=800&fit=crop&q=80" alt="Premium Sneakers & Shoes" loading="lazy" /></div>
             <div class="category-info">
               <h3>Sneakers &amp; Shoes</h3>
               <p>Step into luxury. Iconic silhouettes meets unmatched comfort.</p>
@@ -106,7 +162,7 @@
             </div>
           </a>
           <a href="/collections.html?cat=jewelry" class="category-card animate-on-scroll" id="cat-jewelry">
-            <div class="category-img"><img src="/images/jewelry.png" alt="Premium Jewelry" loading="lazy" /></div>
+            <div class="category-img"><img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=600&h=800&fit=crop&q=80" alt="Premium Jewelry" loading="lazy" /></div>
             <div class="category-info">
               <h3>Jewelry</h3>
               <p>Make your statement. Refined pieces that command attention.</p>
@@ -114,7 +170,7 @@
             </div>
           </a>
           <a href="/collections.html?cat=unisex" class="category-card animate-on-scroll" id="cat-unisex">
-            <div class="category-img"><img src="/images/unisex-wear.png" alt="Unisex Wears" loading="lazy" /></div>
+            <div class="category-img"><img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=600&h=800&fit=crop&q=80" alt="Unisex Wears" loading="lazy" /></div>
             <div class="category-info">
               <h3>Unisex Wears</h3>
               <p>Fashion without boundaries. Premium essentials for every wardrobe.</p>
@@ -122,7 +178,7 @@
             </div>
           </a>
           <a href="/collections.html?cat=underwear" class="category-card animate-on-scroll" id="cat-underwear">
-            <div class="category-img"><img src="/images/underwear.png" alt="Premium Underwear" loading="lazy" /></div>
+            <div class="category-img"><img src="https://images.unsplash.com/photo-1571945153237-4929e783af4a?w=600&h=800&fit=crop&q=80" alt="Premium Underwear" loading="lazy" /></div>
             <div class="category-info">
               <h3>Underwear</h3>
               <p>Luxury starts underneath. Unparalleled comfort, elevated design.</p>
@@ -165,7 +221,7 @@
             </div>
           </div>
           <div class="manifesto-visual animate-on-scroll">
-            <img src="/images/sneakers.png" alt="Reubx World quality" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1556906781-9a412961c28c?w=600&h=750&fit=crop&q=80" alt="Reubx World quality" loading="lazy" />
             <div class="manifesto-stat">
               <span class="stat-number">100%</span>
               <span class="stat-label">Customer Satisfaction</span>
@@ -186,7 +242,7 @@
         <div class="products-grid">
           <div class="product-card animate-on-scroll" id="product-1">
             <div class="product-badge">Exclusive</div>
-            <div class="product-img"><img src="/images/sneakers.png" alt="RBX Shadow Elite Sneakers" loading="lazy" /></div>
+            <div class="product-img"><img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=500&h=500&fit=crop&q=80" alt="RBX Shadow Elite Sneakers" loading="lazy" /></div>
             <div class="product-info">
               <h3>RBX Shadow Elite</h3>
               <p class="product-type">Premium Sneakers</p>
@@ -196,7 +252,7 @@
           </div>
           <div class="product-card animate-on-scroll" id="product-2">
             <div class="product-badge badge-limited">Limited Stock</div>
-            <div class="product-img"><img src="/images/jewelry.png" alt="Aurelius Gold Chain" loading="lazy" /></div>
+            <div class="product-img"><img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=500&h=500&fit=crop&q=80" alt="Aurelius Gold Chain" loading="lazy" /></div>
             <div class="product-info">
               <h3>Aurelius Gold Chain</h3>
               <p class="product-type">Signature Jewelry</p>
@@ -205,7 +261,7 @@
             </div>
           </div>
           <div class="product-card animate-on-scroll" id="product-3">
-            <div class="product-img"><img src="/images/unisex-wear.png" alt="Metro Oversized Hoodie" loading="lazy" /></div>
+            <div class="product-img"><img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=500&h=500&fit=crop&q=80" alt="Metro Oversized Hoodie" loading="lazy" /></div>
             <div class="product-info">
               <h3>Metro Oversized Hoodie</h3>
               <p class="product-type">Unisex Streetwear</p>
@@ -215,7 +271,7 @@
           </div>
           <div class="product-card animate-on-scroll" id="product-4">
             <div class="product-badge">Exclusive</div>
-            <div class="product-img"><img src="/images/underwear.png" alt="Luxe Comfort Set" loading="lazy" /></div>
+            <div class="product-img"><img src="https://images.unsplash.com/photo-1563826904577-6b72c5d05769?w=500&h=500&fit=crop&q=80" alt="Luxe Comfort Set" loading="lazy" /></div>
             <div class="product-info">
               <h3>Luxe Comfort Set</h3>
               <p class="product-type">Premium Underwear</p>
@@ -277,6 +333,56 @@
       </div>
     </section>
 
+    <!-- BRAND MARQUEE -->
+    <div class="brand-marquee">
+      <div class="brand-marquee-track">
+        <span>REUBX WORLD®️</span><span class="marquee-sep">—</span>
+        <span>PREMIUM FASHION</span><span class="marquee-sep">—</span>
+        <span>QUALITY GUARANTEED</span><span class="marquee-sep">—</span>
+        <span>SINCE 2024</span><span class="marquee-sep">—</span>
+        <span>REUBX WORLD®️</span><span class="marquee-sep">—</span>
+        <span>PREMIUM FASHION</span><span class="marquee-sep">—</span>
+        <span>QUALITY GUARANTEED</span><span class="marquee-sep">—</span>
+        <span>SINCE 2024</span><span class="marquee-sep">—</span>
+      </div>
+    </div>
+
+    <!-- INSTAGRAM / LIFESTYLE GRID -->
+    <section class="insta-section" id="lifestyle">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <p class="section-tag">@REUBXWORLD</p>
+          <h2 class="section-title">The <em>Lifestyle</em></h2>
+        </div>
+        <div class="insta-grid">
+          <a href="https://wa.me/2348104699214" class="insta-item" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&q=80" alt="Lifestyle" loading="lazy" /><div class="insta-overlay"><span>✦</span></div></a>
+          <a href="https://wa.me/2348104699214" class="insta-item" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=400&h=400&fit=crop&q=80" alt="Lifestyle" loading="lazy" /><div class="insta-overlay"><span>✦</span></div></a>
+          <a href="https://wa.me/2348104699214" class="insta-item" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&h=400&fit=crop&q=80" alt="Lifestyle" loading="lazy" /><div class="insta-overlay"><span>✦</span></div></a>
+          <a href="https://wa.me/2348104699214" class="insta-item" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1591085686350-798c0f9faa7f?w=400&h=400&fit=crop&q=80" alt="Lifestyle" loading="lazy" /><div class="insta-overlay"><span>✦</span></div></a>
+          <a href="https://wa.me/2348104699214" class="insta-item" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1556906781-9a412961c28c?w=400&h=400&fit=crop&q=80" alt="Lifestyle" loading="lazy" /><div class="insta-overlay"><span>✦</span></div></a>
+          <a href="https://wa.me/2348104699214" class="insta-item" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=400&h=400&fit=crop&q=80" alt="Lifestyle" loading="lazy" /><div class="insta-overlay"><span>✦</span></div></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter" id="newsletter">
+      <div class="container">
+        <div class="newsletter-card animate-on-scroll">
+          <div class="newsletter-content">
+            <p class="section-tag">STAY IN THE LOOP</p>
+            <h2 class="newsletter-title">Get Exclusive <em>Drops</em></h2>
+            <p class="newsletter-sub">Be the first to know about new arrivals, special offers, and exclusive drops. Join the Reubx World inner circle.</p>
+            <form class="newsletter-form" id="newsletterForm">
+              <input type="email" placeholder="Enter your email address" required id="newsletterEmail" />
+              <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+            <p class="newsletter-note">No spam. Unsubscribe anytime.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- 8. FOOTER -->
     <footer class="footer" id="footer">
       <div class="container">
@@ -328,6 +434,11 @@
         </div>
       </div>
     </footer>
+
+    <!-- BACK TO TOP -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
 
     <script type="module" src="/src/main.js"></script>
   </body>

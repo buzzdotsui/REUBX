@@ -2,6 +2,15 @@ import './style.css';
 import './collections.css';
 import { PRODUCTS } from './products.js';
 
+// ── Loader ──
+const loader = document.getElementById('loader');
+if (loader) {
+  setTimeout(() => {
+    loader.classList.add('hidden');
+    setTimeout(() => loader.remove(), 600);
+  }, 1500);
+}
+
 // ── Read URL params (e.g. ?cat=sneakers) ──
 const urlParams = new URLSearchParams(window.location.search);
 const paramCat = urlParams.get('cat');

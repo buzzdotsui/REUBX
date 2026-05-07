@@ -23,7 +23,7 @@
   background:
     radial-gradient(ellipse at 50% 100%, rgba(212,175,55,0.12) 0%, transparent 55%),
     linear-gradient(180deg, #050505 0%, #0e0c08 60%, #0a0a0a 100%);
-  padding-top: var(--nav-height);
+  padding-top: calc(var(--nav-height) + 36px);
 }
 
 .coll-hero-overlay {
@@ -60,7 +60,7 @@
    ============================================ */
 .search-filter-bar {
   position: sticky;
-  top: var(--nav-height);
+  top: calc(var(--nav-height) + 36px);
   z-index: 100;
   background: rgba(10, 10, 10, 0.92);
   backdrop-filter: blur(20px) saturate(160%);
