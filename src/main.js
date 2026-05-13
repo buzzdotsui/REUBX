@@ -46,38 +46,37 @@ function initHeroReveal() {
   elements.forEach(({ sel, delay }) => {
     const el = document.querySelector(sel);
     if (!el) return;
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'none';
-
     setTimeout(() => {
-      el.style.transition = 'opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1)';
-      el.style.opacity = '1';
-      el.style.transform = 'translateY(0)';
+      el.classList.add('visible');
     }, delay);
   });
 }
 
-// --- Scroll-triggered Animations ---
+// --- Scroll-triggered Animations (replay on every scroll) ---
 function initScrollAnimations() {
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const children = entry.target.querySelectorAll('.animate-on-scroll');
-          if (children.length > 0) {
-            children.forEach((child, i) => {
-              setTimeout(() => child.classList.add('visible'), i * 120);
+          const slideChildren = entry.target.querySelectorAll('.slide-left, .slide-right, .slide-up, .slide-down, .zoom-in, .rotate-in, .animate-on-scroll');
+          if (slideChildren.length > 0 && entry.target !== slideChildren[0]) {
+            slideChildren.forEach((child, i) => {
+              setTimeout(() => child.classList.add('visible'), i * 150);
             });
           }
           entry.target.classList.add('visible');
+        } else {
+          // Remove visible class so animation replays on re-entry
+          entry.target.classList.remove('visible');
+          const slideChildren = entry.target.querySelectorAll('.slide-left, .slide-right, .slide-up, .slide-down, .zoom-in, .rotate-in, .animate-on-scroll');
+          slideChildren.forEach((child) => child.classList.remove('visible'));
         }
       });
     },
-    { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
   );
 
-  document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
+  document.querySelectorAll('.animate-on-scroll, .slide-left, .slide-right, .slide-up, .slide-down, .zoom-in, .rotate-in').forEach((el) => observer.observe(el));
   document.querySelectorAll('.categories-grid, .products-grid, .trust-badges, .process-steps')
     .forEach((el) => observer.observe(el));
 }
@@ -251,7 +250,7 @@ function initAmbientOrbs() {
   });
 }
 
-// --- Counter Animation ---
+// --- Counter Animation (replays every scroll) ---
 function initCounterAnimation() {
   const statNumber = document.querySelector('.stat-number');
   if (!statNumber) return;
@@ -259,8 +258,10 @@ function initCounterAnimation() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
+        statNumber.classList.remove('animated');
         animateCounter(statNumber, 0, 100, 2000);
-        observer.unobserve(entry.target);
+      } else {
+        statNumber.textContent = '0%';
       }
     });
   }, { threshold: 0.5 });
@@ -329,13 +330,13 @@ function initGoldenSweepOnScroll() {
   sections.forEach(s => observer.observe(s));
 }
 
-// --- Staggered Card Entrance ---
+// --- Staggered Card Entrance (replays on scroll) ---
 function initStaggeredCards() {
   const grids = document.querySelectorAll('.categories-grid, .products-grid');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
+      const cards = entry.target.children;
       if (entry.isIntersecting) {
-        const cards = entry.target.children;
         Array.from(cards).forEach((card, i) => {
           card.style.opacity = '0';
           card.style.transform = 'translateY(40px) scale(0.95)';
@@ -347,7 +348,12 @@ function initStaggeredCards() {
             });
           });
         });
-        observer.unobserve(entry.target);
+      } else {
+        Array.from(cards).forEach((card) => {
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(40px) scale(0.95)';
+          card.style.transition = 'none';
+        });
       }
     });
   }, { threshold: 0.15 });
